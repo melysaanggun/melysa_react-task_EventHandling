@@ -1,0 +1,14 @@
+.add-todolist input {
+    border-radius: 40px;
+    margin: 1rem;
+    padding: 7px;
+    box-shadow: 1px 1px 10px 1px gray;
+    border: none;
+}
+
+.add-todolist button {
+    border: none;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+} 
