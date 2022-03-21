@@ -1,18 +1,58 @@
-import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { Component } from 'react';
 import AddTodo from "./components/AddTodo";
+import List from './components/List';
 
-function App() {
-  const [todos, setTodos] = useState([]);
-  const [todo,setTodo] = useState("");
+export default class App extends Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <div className="App">
-      <h1>todos</h1>
-      <AddTodo />
-    </div>
-  );
+    this.state = {
+      todo: 
+      [
+        {
+          id: 1,
+          title: "Mengerjakan Exercise",
+          completed: true
+        },
+        {
+          id: 2,
+          title: "Mengerjakan Assignment",
+          completed: false 
+        }
+      ]
+    }
+  }
+
+  simpan(value) {
+    const baru = [...this.state.todo, 
+      {id: (new Date()).getTime(), title: value, completed: false,  }]
+    this.setState({todo: baru})
+  }
+
+  selesai(id, checked) {
+    const baru = this.state.todo.map(x => {
+      if (id === x.id) return {...x, completed: checked}
+      return x
+    })
+    this.setState({todo: baru})
+  }
+
+  hapus(id) {
+    const baru = this.state.todo.filter(x => x.id !== id )
+    this.setState({todo: baru})
+  }
+
+  render () {
+    return (
+      <div className="container">
+        <div className="row">
+          <h1>todos</h1>
+          <AddTodo simpan={this.simpan.bind(this)}/>
+          <List list={this.state.todo} onChecked={this.selesai.bind(this)}
+          hapus={this.hapus.bind(this)} />
+        </div>
+      </div>
+    )
+  }
 }
-
-export default App;

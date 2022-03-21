@@ -3,6 +3,7 @@
 }
 
 h1 {
+  text-align: center;
   font-size: 60px;
   background-image: linear-gradient(to right, yellow, green, blue);
   -webkit-background-clip: text;

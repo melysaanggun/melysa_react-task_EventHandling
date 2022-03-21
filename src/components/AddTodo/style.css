@@ -1,4 +1,7 @@
-.add-todolist input {
+.form-input {
+    text-align: center;
+}
+.form-input input {
     border-radius: 40px;
     margin: 1rem;
     padding: 7px;
@@ -6,7 +9,7 @@
     border: none;
 }
 
-.add-todolist button {
+.form-input button {
     border: none;
     background-color: white;
     color: black;

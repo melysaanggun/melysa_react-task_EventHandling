@@ -1,11 +1,24 @@
-import { Component } from "react";
+const List = (props) => {
 
-class List extends Component {
-    constructor(props) {
-        super(props);
+    const onChange = (id) => {
+        return (e) => {
+            props.onChecked(id, e.target.checked)
+        }
     }
 
-    render() {
-        
-    }
+    return ( 
+        <div>
+            {props.list.map(todo => {
+                return <ul key={todo.id} style={{textDecoration: todo.completed ? 'line-through' : 'none'}}>
+                        <input type="checkbox" checked={todo.completed} 
+                        onChange={onChange(todo.id)}  />
+                        {todo.title}
+
+                    <button onClick={() => props.hapus(todo.id)} >Delete</button>
+                    </ul>
+            })}
+        </div>
+     );
 }
+ 
+export default List;
