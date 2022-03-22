@@ -23,8 +23,12 @@ class AddTodo extends Component {
         return (
         <>
         <div className="form-input">
-            <input type="text" placeholder="Add todo..." value={this.state.value} 
+            <input 
+            type="text" 
+            placeholder="Add todo..." 
+            value={this.state.value} 
             onChange={(e) => this.onChange(e)} />
+            
             <button type="submit" onClick={this.onClick.bind(this)} >Submit</button>
         </div>
         <div>

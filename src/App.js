@@ -49,7 +49,9 @@ export default class App extends Component {
         <div className="row">
           <h1>todos</h1>
           <AddTodo simpan={this.simpan.bind(this)}/>
-          <List list={this.state.todo} onChecked={this.selesai.bind(this)}
+          <List 
+          list={this.state.todo} 
+          onChecked={this.selesai.bind(this)}
           hapus={this.hapus.bind(this)} />
         </div>
       </div>
