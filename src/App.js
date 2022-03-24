@@ -24,13 +24,13 @@ export default class App extends Component {
     }
   }
 
-  simpan(value) {
+  simpan = (value) => {
     const baru = [...this.state.todo, 
       {id: (new Date()).getTime(), title: value, completed: false,  }]
     this.setState({todo: baru})
   }
 
-  selesai(id, checked) {
+  selesai = (id, checked) => {
     const baru = this.state.todo.map(x => {
       if (id === x.id) return {...x, completed: checked}
       return x
@@ -38,7 +38,7 @@ export default class App extends Component {
     this.setState({todo: baru})
   }
 
-  hapus(id) {
+  hapus = (id) => {
     const baru = this.state.todo.filter(x => x.id !== id )
     this.setState({todo: baru})
   }
@@ -48,11 +48,11 @@ export default class App extends Component {
       <div className="container">
         <div className="row">
           <h1>todos</h1>
-          <AddTodo simpan={this.simpan.bind(this)}/>
+          <AddTodo simpan={this.simpan}/>
           <List 
           list={this.state.todo} 
-          onChecked={this.selesai.bind(this)}
-          hapus={this.hapus.bind(this)} />
+          onChecked={this.selesai}
+          hapus={this.hapus} />
         </div>
       </div>
     )

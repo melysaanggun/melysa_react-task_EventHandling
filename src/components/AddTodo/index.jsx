@@ -14,7 +14,7 @@ class AddTodo extends Component {
         this.setState({value: e.target.value})
     }
     
-    onClick() {
+    onClick = () => {
         this.props.simpan(this.state.value)
         this.setState({value: ''})
     }
@@ -29,7 +29,7 @@ class AddTodo extends Component {
             value={this.state.value} 
             onChange={(e) => this.onChange(e)} />
             
-            <button type="submit" onClick={this.onClick.bind(this)} >Submit</button>
+            <button type="submit" onClick={this.onClick}>Submit</button>
         </div>
         <div>
             
